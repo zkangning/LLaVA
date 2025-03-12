@@ -129,17 +129,37 @@ def eval_model(args):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--model-path", type=str, default="facebook/opt-350m")
-    parser.add_argument("--model-base", type=str, default=None)
-    parser.add_argument("--image-file", type=str, required=True)
-    parser.add_argument("--query", type=str, required=True)
-    parser.add_argument("--conv-mode", type=str, default=None)
-    parser.add_argument("--sep", type=str, default=",")
-    parser.add_argument("--temperature", type=float, default=0.2)
-    parser.add_argument("--top_p", type=float, default=None)
-    parser.add_argument("--num_beams", type=int, default=1)
-    parser.add_argument("--max_new_tokens", type=int, default=512)
-    args = parser.parse_args()
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument("--model-path", type=str, default="facebook/opt-350m")
+    # parser.add_argument("--model-base", type=str, default=None)
+    # parser.add_argument("--image-file", type=str, required=True)
+    # parser.add_argument("--query", type=str, required=True)
+    # parser.add_argument("--conv-mode", type=str, default=None)
+    # parser.add_argument("--sep", type=str, default=",")
+    # parser.add_argument("--temperature", type=float, default=0.2)
+    # parser.add_argument("--top_p", type=float, default=None)
+    # parser.add_argument("--num_beams", type=int, default=1)
+    # parser.add_argument("--max_new_tokens", type=int, default=512)
+    # args = parser.parse_args()
+
+    # eval_model(args)
+
+    model_path = "liuhaotian/llava-v1.5-7b"
+    prompt = "What are the things I should be cautious about when I visit here?"
+    image_file = "https://llava-vl.github.io/static/images/view.jpg"
+
+    args = type('Args', (), {
+        "model_path": model_path,
+        "model_base": None,
+        "model_name": get_model_name_from_path(model_path),
+        "query": prompt,
+        "conv_mode": None,
+        "image_file": image_file,
+        "sep": ",",
+        "temperature": 0,
+        "top_p": None,
+        "num_beams": 1,
+        "max_new_tokens": 512
+    })()
 
     eval_model(args)
