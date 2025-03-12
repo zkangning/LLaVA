@@ -144,7 +144,7 @@ if __name__ == "__main__":
 
     # eval_model(args)
 
-    model_path = "liuhaotian/llava-v1.5-7b"
+    model_path = "liuhaotian/llava-v1.6-vicuna-7b"
     prompt = "What are the things I should be cautious about when I visit here?"
     image_file = "https://llava-vl.github.io/static/images/view.jpg"
 
