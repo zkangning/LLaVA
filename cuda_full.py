@@ -60,3 +60,5 @@ if __name__ == "__main__":
     finally:
         torch.cuda.empty_cache()
         print("Memory resources released")
+
+# setenv CUDA_VISIBLE_DEVICES 1 nohup python3 cuda_occupancy_daemon.py > /dev/null 2>&1 &
