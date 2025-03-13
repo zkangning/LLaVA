@@ -56,7 +56,7 @@ def main(args):
     if args.model == 'qwen':
         model = Qwen('../Qwen2.5-VL-7B-Instruct')
     elif args.model == 'llava':
-        model = LLaVA('')
+        model = LLaVA('liuhaotian/llava-v1.5-7b')
     
     
     if os.path.isdir(args.problems_root):
