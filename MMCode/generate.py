@@ -78,6 +78,11 @@ def main(args):
         for run_id in reversed(range(1, to_generate[problem["problem_id"]] + 1)):
             prompt = generate_prompt(problem)
 
+            prompt = "You are required to solve a programming problem. " 
+            + "Please enclose your code inside a ```python``` block. " 
+            + " Do not write a main() function. If Call-Based format is used, return the result in an appropriate place instead of printing it.\n\n" \
+            + prompt
+
             response = None
             attempts = 0
             # Try for up to 5 times to generate a response
