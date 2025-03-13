@@ -8,7 +8,7 @@ from PIL import Image
 from tqdm import tqdm
 
 #from models import GPT4V, GPT4, GEMINI_PRO_VISION, GEMINI_PRO
-from Qwen import Qwen
+# from Qwen import Qwen
 from LLaVA import LLaVA
 from utils import load_problems_from_folder, load_problems_from_jsonl
 
