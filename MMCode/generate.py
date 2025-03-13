@@ -107,17 +107,17 @@ def main(args):
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Generate code for problems.")
-    parser.add_argument("--model", type=str, default="qwen", help="Model to use for generation.")    
-    parser.add_argument("--problems_root", type=str, default="../data/mmcode_dataset", help="Path to the root directory of problems.")
-    parser.add_argument("--save_path", type=str, help="Path where the results will be saved.")
+    parser.add_argument("--model", type=str, default="llava", help="Model to use for generation.")    
+    parser.add_argument("--problems_root", type=str, default="./data/mmcode_dataset", help="Path to the root directory of problems.")
+    parser.add_argument("--save_path", type=str, default="./saved_results", help="Path where the results will be saved.")
     parser.add_argument("--n", type=int, default=1, help="Number of generations per problem.")
     parser.add_argument("--data_split", type=str, default="test", help="Select the data split you want to use.")
     parser.add_argument("--image_categories", type=str, default=None, help="Select the image categories you want to use.")
-    parser.add_argument("--temperature", type=float, default=0.001, help="The temperature used in the generation.")
+    parser.add_argument("--temperature", type=float, default=0.2, help="The temperature used in the generation.")
     args = parser.parse_args()
     args.data_split = args.data_split.split(',')
     args.image_categories = args.image_categories.split(',') if args.image_categories else None
-    return args
+    return args 
 
 if __name__ == '__main__':
     main(parse_args())
