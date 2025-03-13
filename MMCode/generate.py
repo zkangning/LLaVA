@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 #from models import GPT4V, GPT4, GEMINI_PRO_VISION, GEMINI_PRO
 from Qwen import Qwen
-from llava import LLaVA
+from LLaVA import LLaVA
 from utils import load_problems_from_folder, load_problems_from_jsonl
 
 
@@ -53,7 +53,11 @@ def main(args):
     else:
         raise ValueError(f"Unknown model {args.model}")
     print(f"Running model {args.model}")'''
-    model = Qwen('../Qwen2.5-VL-7B-Instruct')
+    if args.model == 'qwen':
+        model = Qwen('../Qwen2.5-VL-7B-Instruct')
+    elif args.model == 'llava':
+        model = LLaVA('')
+    
     
     if os.path.isdir(args.problems_root):
         problems = load_problems_from_folder(args.problems_root, data_split=args.data_split, image_categories=args.image_categories)
